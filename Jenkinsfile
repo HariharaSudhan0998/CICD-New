@@ -12,6 +12,10 @@ pipeline {
      steps {
         sh(script: 'mvn test')
 	sh(script: 'mvn package')
+	 junit 'test-results.xml'
+
+
+//junit 'more-test-results.xml'
         echo 'Unit Test...'
      }
    }
