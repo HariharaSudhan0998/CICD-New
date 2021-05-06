@@ -44,9 +44,10 @@ pipeline {
    }
     stage('Deploy') {
      steps {	                         
-	     
-	    // sh(deploy contextPath: 'http://65.1.231.149:8081/repository/spring-boot1/org/springframework/gs-spring-boot/1.0.1/gs-spring-boot-1.0.1.jar', 
-	      //    war: 'gs-spring-boot-1.0.1.jar')	   
+	     sshagent  {
+      // get the last commit id from a repository you own
+             sh 'git ls-remote -h --refs git@github.com/HariharaSudhan0998/CICDPractice.git master |awk "{print $1}"'
+    }	   
         echo 'Deploy...'
      }
    }
