@@ -12,7 +12,7 @@ pipeline {
      steps {
         sh(script: 'mvn test')
 	sh(script: 'mvn package')
-	 junit 'test-results.xml'
+	 junit 'target/surefire-reports/*.xml'
 
 
 //junit 'more-test-results.xml'
