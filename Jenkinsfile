@@ -34,30 +34,15 @@ pipeline {
      steps {	          
 	      sh(script: 'mvn  -version')
               sh(script: 'mvn   deploy')
-	     // sh(script: 'mvn clean install deploy -P release')
-	   /*  nexusArtifactUploader artifacts: [
-		                      [ 
-					       artifactId: 'myweb', 
-					       classifier: '', 
-					       file: 'target/my-app-1.0.0.war', 
-					       type: 'war'
-				      ]
-	                           ], 
-		                               credentialsId: 'e0f7d903-7b82-46f1-9b1e-c82b73a22ee4', 
-		                               groupId: 'in.javahome', 
-		                               nexusUrl: 'ec2-65-2-73-94.ap-south-1.compute.amazonaws.com:8081/', 
-		                               nexusVersion: 'nexus3', 
-		                               protocol: 'http', 
-		                               repository: 'Simpleapp-release', 
-		                               version: '1.0.0' */
-	      
-
+	     
         echo 'Artifact Push...'
      }
    }
     stage('Deploy') {
-     steps {
-	   //  sh(script: 'mvn deploy')
+     steps {	        
+                 cd 'hari'
+	         wget http://65.1.231.149:8081/repository/spring-boot/org/springframework/gs-spring-boot/1.0.1/gs-spring-boot-1.0.1.jar
+                 java -jar gs-spring-boot-1.0.1.jar
         echo 'Deploy...'
      }
    }
