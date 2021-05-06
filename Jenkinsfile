@@ -36,8 +36,8 @@ pipeline {
    }
     stage('Artifact Push') {
      steps {	          
-	      sh(script: 'mvn  -version')
-              sh(script: 'mvn   deploy')
+	   //   sh(script: 'mvn  -version')
+           //   sh(script: 'mvn   deploy')
 	     
         echo 'Artifact Push...'
      }
@@ -52,7 +52,7 @@ pipeline {
    }
     stage('Smoke Test') {
      steps {       			         
-			    sh ( 'http://65.2.108.33:8080'  )
+			//    sh ( 'http://65.2.108.33:8080'  )
 		     
         echo 'Smoke Test...'
 		     }
