@@ -41,8 +41,8 @@ pipeline {
     stage('Deploy') {
      steps {	        
                  cd 'hari'
-	         wget http://65.1.231.149:8081/repository/spring-boot/org/springframework/gs-spring-boot/1.0.1/gs-spring-boot-1.0.1.jar
-                 java -jar gs-spring-boot-1.0.1.jar
+	         sh('wget http://65.1.231.149:8081/repository/spring-boot/org/springframework/gs-spring-boot/1.0.1/gs-spring-boot-1.0.1.jar')
+                 sh('java -jar gs-spring-boot-1.0.1.jar')
         echo 'Deploy...'
      }
    }
