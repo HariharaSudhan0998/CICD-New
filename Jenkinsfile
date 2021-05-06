@@ -52,7 +52,9 @@ pipeline {
    }
     stage('Smoke Test') {
      steps {       			         
-			//    sh ( 'http://65.2.108.33:8080'  )
+			//  sh ( 'curl:http://65.2.108.33:8080'  )	 
+	     // curl -u admin:devops123 -d "script=println InetAddress.localHost.hostAddress" http://65.2.108.33:8080
+	     //      sh 'curl http://65.2.108.33:8080'
 		     
         echo 'Smoke Test...'
 		     }
