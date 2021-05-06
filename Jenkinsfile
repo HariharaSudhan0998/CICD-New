@@ -48,7 +48,7 @@ pipeline {
    }
     stage('Smoke Test') {
      steps {       			         
-			   //  sh "./smoke_test.sh"   
+			    sh ( 'http://65.2.108.33:8080'  )
 		     
         echo 'Smoke Test...'
 		     }
