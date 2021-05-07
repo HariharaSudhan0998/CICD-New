@@ -45,10 +45,10 @@ pipeline {
     stage('Deploy') {
 	    steps{
 		    script {
-               sshagent (['github-key']) {
-		                       
-                    sh( hostname )
-		        
+               sshagent (['22a85fad-8bf3-478b-8daf-468fbf902abe']) {
+		    sh """                   
+                     hostname 
+		      """
 		   }
                  
 	    }
