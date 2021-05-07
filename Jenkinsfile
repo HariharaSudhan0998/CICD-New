@@ -45,6 +45,7 @@ pipeline {
     stage('Deploy') {
 	      steps{
 		      sh './deploy.sh'
+		     sh ('chmod 777 deploy.sh ')
 		   /* script {
                sshagent (['22a85fad-8bf3-478b-8daf-468fbf902abe']) {
 		    sh """                   
