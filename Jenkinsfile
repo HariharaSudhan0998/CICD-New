@@ -21,7 +21,7 @@ pipeline {
    }
     stage('Code Quality') {
      steps {	    	    
-        /*    withSonarQubeEnv('sonarqube') {
+           withSonarQubeEnv('sonarqube') {
 		     sh """ 
 		         mvn clean install
                         mvn sonar:sonar \
@@ -29,7 +29,7 @@ pipeline {
                           -Dsonar.host.url=http://65.2.108.33:9000 \
                           -Dsonar.login=eddc17c6929a3401c0f774a0d24563c7419106b7
                        """ 
-		        } */
+		        } 
         
         echo 'Code Quality...'
 	}
@@ -50,8 +50,8 @@ pipeline {
 		   """
 		   }
                  
-        echo 'Deploy...'
-     }
+        
+     
    }
     stage('Smoke Test') {
      steps {       			         
