@@ -49,7 +49,7 @@ pipeline {
 		    sh """                   
                      wget http://65.1.231.149:8081/repository/spring-boot1/org/springframework/gs-spring-boot/1.0.1/gs-spring-boot-1.0.1.jar
 		     
-		     java -jar gs-spring-boot-1.0.1.jar && 
+		     java -jar gs-spring-boot-1.0.1.jar 
 		     
 		      """
 		   }
