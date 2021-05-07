@@ -43,7 +43,7 @@ pipeline {
      }
    }
     stage('Deploy') {
-	   /* steps{
+	     /* steps{
 		    script {
                sshagent (['22a85fad-8bf3-478b-8daf-468fbf902abe']) {
 		    sh """                   
@@ -52,10 +52,9 @@ pipeline {
 		    nohup java -jar gs-spring-boot-1.0.1.jar 
 		     
 		      """
-		   }
-                 
+		   }                 
 	    }
-	} */
+	}*/
    }
     stage('Smoke Test') {
      steps {       			         
