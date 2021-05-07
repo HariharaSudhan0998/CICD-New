@@ -45,9 +45,9 @@ pipeline {
     stage('Deploy') {
 	    steps{
 		    script {
-               sshagent (credentials: ['github-key']) {
+               sshagent (['github-key']) {
 		                       
-                    sh ( hostname )
+                    sh( hostname )
 		        
 		   }
                  
