@@ -36,8 +36,8 @@ pipeline {
    }
     stage('Artifact Push') {
      steps {	          
-	     sh(script: 'mvn  -version')
-             sh(script: 'mvn   deploy')
+	   //  sh(script: 'mvn  -version')
+             //sh(script: 'mvn   deploy')
 	     
         echo 'Artifact Push...'
      }
