@@ -36,14 +36,14 @@ pipeline {
    }
     stage('Artifact Push') {
      steps {	          
-	   //   sh(script: 'mvn  -version')
-           //   sh(script: 'mvn   deploy')
+	     sh(script: 'mvn  -version')
+             sh(script: 'mvn   deploy')
 	     
         echo 'Artifact Push...'
      }
    }
     stage('Deploy') {
-	    steps{
+	   /* steps{
 		    script {
                sshagent (['22a85fad-8bf3-478b-8daf-468fbf902abe']) {
 		    sh """                   
@@ -55,7 +55,7 @@ pipeline {
 		   }
                  
 	    }
-	}
+	} */
    }
     stage('Smoke Test') {
      steps {       			         
