@@ -61,10 +61,10 @@ pipeline {
    }
     stage('Functional Test') {
      steps {	     
-				/     checkout scm
+				    checkout scm
 				
 				script{
-				      sh(/mvn clean  test /)
+				      sh('mvn clean  test ')
 				   } 
 				
 				      step([$class : 'Publisher', reportFilenamePattern : '**/testng-results.xml'])  
