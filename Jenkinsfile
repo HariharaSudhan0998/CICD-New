@@ -53,7 +53,8 @@ pipeline {
         }
    }
     stage('Smoke Test') {
-     steps {       			         				 
+     steps {       			       
+	     sh 'curl http://65.2.108.33:8080'
 	     sh 'curl -u admin:devops123 -d "script=println InetAddress.localHost.hostAddress" http://65.2.108.33:8080'
 	    
         echo 'Smoke Test...'
@@ -61,12 +62,7 @@ pipeline {
    }
     stage('Functional Test') {
      steps {	     
-				    checkout scm
-				
-				script{
-				      sh('mvn clean  test ')
-				   } 
-				
+				    			
 				      step([$class : 'Publisher', reportFilenamePattern : '**/testng-results.xml'])  
 	           
 			
