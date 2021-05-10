@@ -1,7 +1,7 @@
 pipeline {
    agent any
 
-   stages {
+  /* stages {
     stage('Compile') {
      steps {
         sh(script: 'mvn compile')
@@ -16,7 +16,7 @@ pipeline {
 
         echo 'Unit Test...'
      }
-   }
+   } */
     stage('Code Quality') {
      steps {	    	    
            withSonarQubeEnv('sonarqube') {
@@ -35,7 +35,7 @@ pipeline {
     stage('Artifact Push') {
      steps {	          
 	   //  sh(script: 'mvn  -version')
-             //sh(script: 'mvn   deploy')
+             sh(script: 'mvn   deploy')
 	     
         echo 'Artifact Push...'
      }
@@ -45,8 +45,8 @@ pipeline {
 		      
 		   script {
                sshagent (credentials:['deployserver']) { 
-                sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.9.220 "killall -9 java; rm -rf gs-spring-boot-1.0.1.jar; ls -ltr; ps -ef |grep java; sleep 60"'
-                sh 'scp -o StrictHostKeyChecking=no target/*.jar ec2-user@172.31.9.220:/home/ec2-user/'
+                sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.9.220 "killall -9 java; rm -rf gs-spring-boot-1.0.1.jar; ls -ltr; ps -ef |grep java; "'
+              //  sh 'scp -o StrictHostKeyChecking=no target/*.jar ec2-user@172.31.9.220:/home/ec2-user/'
                 sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.9.220 "pwd; ls -ltr; java -jar gs-spring-boot-1.0.1.jar 2>> /dev/null >> /dev/null &"; sleep 10; ps -ef |grep java'
 		   }                 
 	      } 
@@ -63,7 +63,7 @@ pipeline {
     stage('Functional Test') {
      steps {	     
 				    			
-				      step([$class : 'Publisher', reportFilenamePattern : '**/testng-results.xml'])  
+				  //    step([$class : 'Publisher', reportFilenamePattern : '**/testng-results.xml'])  
 	           
 			
         echo 'Functional Test...'
