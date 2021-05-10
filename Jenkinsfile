@@ -20,8 +20,7 @@ pipeline {
     stage('Code Quality') {
      steps {	    	    
            withSonarQubeEnv('sonarqube') {
-		     sh """ 
-		         mvn clean install
+		     sh """ 		        
                         mvn sonar:sonar \
                           -Dsonar.projectKey=sonarqube1 \
                           -Dsonar.host.url=http://65.2.108.33:9000 \
