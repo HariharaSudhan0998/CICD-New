@@ -2,7 +2,7 @@ pipeline {
    agent any
 
   stages {
-   /*  stage('Compile') {
+     stage('Compile') {
      steps {
         sh(script: 'mvn compile')
         echo 'Compile...'
@@ -16,7 +16,7 @@ pipeline {
 
         echo 'Unit Test...'
      }
-   } */
+   } 
     stage('Code Quality') {
      steps {	    	    
            withSonarQubeEnv('sonarqube') {
