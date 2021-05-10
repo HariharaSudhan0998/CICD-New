@@ -14,8 +14,6 @@ pipeline {
 	sh(script: 'mvn package')
 	 junit 'target/surefire-reports/*.xml'
 
-
-//junit 'more-test-results.xml'
         echo 'Unit Test...'
      }
    }
@@ -55,11 +53,9 @@ pipeline {
         }
    }
     stage('Smoke Test') {
-     steps {       			         
-			//  sh ( 'curl:http://65.2.108.33:8080'  )	 
+     steps {       			         				 
 	     sh 'curl -u admin:devops123 -d "script=println InetAddress.localHost.hostAddress" http://65.2.108.33:8080'
-	     //      sh 'curl http://65.2.108.33:8080'
-		     
+	    
         echo 'Smoke Test...'
 		     }
    }
