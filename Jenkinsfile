@@ -2,7 +2,7 @@ pipeline {
    agent any
 
   stages {
-     stage('Compile') {
+   /*  stage('Compile') {
      steps {
         sh(script: 'mvn compile')
         echo 'Compile...'
@@ -30,11 +30,11 @@ pipeline {
         
         echo 'Code Quality...'
 	}
-   }
+   }*/
     stage('Artifact Push') {
      steps {	          
 	   //  sh(script: 'mvn  -version')
-             sh(script: 'mvn   deploy')
+            // sh(script: 'mvn   deploy')
 	     
         echo 'Artifact Push...'
      }
