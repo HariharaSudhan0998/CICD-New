@@ -2,7 +2,7 @@ pipeline {
    agent any
 
   stages {
-   /*  stage('Compile') {
+     stage('Compile') {
      steps {
         sh(script: 'mvn compile')
         echo 'Compile...'
@@ -13,11 +13,11 @@ pipeline {
         sh(script: 'mvn test')
 	//sh(script: 'mvn package')
 	 junit 'target/surefire-reports/*.xml'
- -Dsonar.login=eddc17c6929a3401c0f774a0d24563c7419106b7
+
         echo 'Unit Test...'
      }
-   } */
-  /*  stage('Code Quality') {
+   } 
+    stage('Code Quality') {
      steps {	    	    
            withSonarQubeEnv('sonarqube') {
 		     sh """ 		        
@@ -30,8 +30,8 @@ pipeline {
         
         echo 'Code Quality...'
 	}
-   }*/
-   /* stage('Artifact Push') {
+   }
+    stage('Artifact Push') {
      steps {	          
 	   //  sh(script: 'mvn  -version')
             // sh(script: 'mvn   deploy')
@@ -55,11 +55,11 @@ pipeline {
 	     sh 'curl http://65.2.108.33:8080'	  
         echo 'Smoke Test...'
 		     }
-   } */
+   } 
     stage('Functional Test') {
      steps {	     
 				    	//sh('SeleniumTest.java')	
-	                                sh('mvn clean install')
+	                               
 				  //    step([$class : 'Publisher', reportFilenamePattern : '**/testng-results.xml'])  
 	           
 			
