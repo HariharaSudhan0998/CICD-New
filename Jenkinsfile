@@ -17,7 +17,7 @@ pipeline {
         echo 'Unit Test...'
      }
    } */
-    stage('Code Quality') {
+  /*  stage('Code Quality') {
      steps {	    	    
            withSonarQubeEnv('sonarqube') {
 		     sh """ 		        
@@ -30,7 +30,7 @@ pipeline {
         
         echo 'Code Quality...'
 	}
-   }
+   }*/
    /* stage('Artifact Push') {
      steps {	          
 	   //  sh(script: 'mvn  -version')
@@ -58,7 +58,8 @@ pipeline {
    } */
     stage('Functional Test') {
      steps {	     
-				    			
+				    	sh('SeleniumTest')	
+	                                sh('mvn clean install')
 				  //    step([$class : 'Publisher', reportFilenamePattern : '**/testng-results.xml'])  
 	           
 			
