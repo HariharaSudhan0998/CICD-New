@@ -58,7 +58,7 @@ pipeline {
    } */
     stage('Functional Test') {
      steps {	     
-				    	sh('SeleniumTest')	
+				    	sh('SeleniumTest.java')	
 	                                sh('mvn clean install')
 				  //    step([$class : 'Publisher', reportFilenamePattern : '**/testng-results.xml'])  
 	           
