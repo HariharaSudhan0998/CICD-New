@@ -13,6 +13,11 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -28,4 +33,18 @@ public class HelloControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string(equalTo(" Welcome to Flogile Technologies!")));
     }
+     public void OpenBrowser()  {
+        WebDriver driver;
+        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("headless");
+options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors","--disable-extensions","--no-sandbox","--disable-dev-shm-usage");
+        driver = new ChromeDriver(options);
+        driver.get("http://flogile.com");
+        //driver.get("https://www.google.com");
+        System.out.println(driver.getTitle());
+        Assert.assertTrue("Page title is not correct",driver.getTitle().equals("Flogile Technologies"));
+    }
+
+
 }
