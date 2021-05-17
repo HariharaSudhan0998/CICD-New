@@ -36,13 +36,10 @@ public class HelloControllerIT {
     }
 
     @Test
-   /* public void getHello() throws Exception {
+      public void getHello() throws Exception {
         ResponseEntity<String> response = template.getForEntity(base.toString(),
                 String.class);
         assertThat(response.getBody(), equalTo(" Welcome to Flogile Technologies!"));
-    }*/
-    
-    public void getHello()  {
         WebDriver driver;
         System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         ChromeOptions options = new ChromeOptions();
@@ -53,4 +50,6 @@ options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","-
         System.out.println(driver.getTitle());
         Assert.assertTrue("Page title is not correct",driver.getTitle().equals("Google"));
     }
+    
+  
 }
