@@ -37,7 +37,7 @@ public class HelloControllerTest {
     }
     
     @Test
-    public void OpenBrowser()  {
+    public void getHello()  {
         WebDriver driver;
         System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         ChromeOptions options = new ChromeOptions();
